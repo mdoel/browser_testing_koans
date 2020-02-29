@@ -16,9 +16,5 @@ class AboutDrivingBrowsers < Edgecase::Koan
     driver.quit
   end
 
-  def test_selenium_can_drive_edge
-    driver = Selenium::WebDriver.for :edge
-    driver.quit
-  end
 end
 
