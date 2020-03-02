@@ -1,8 +1,5 @@
-dist
-.project_env.rc
-.path_progress
-.rvmrc
-.ruby-version
-*.rbc
-koans/*
-*~
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
