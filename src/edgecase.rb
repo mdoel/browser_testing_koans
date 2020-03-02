@@ -150,6 +150,14 @@ module Edgecase
       yield webdriver
       webdriver.quit
     end
+
+    def headless
+      options = Selenium::WebDriver::Chrome::Options.new
+      options.add_argument('--headless')
+      webdriver = Selenium::WebDriver.for :chrome, options: options
+      yield webdriver
+      webdriver.quit
+    end
   end
 
   module Assertions
