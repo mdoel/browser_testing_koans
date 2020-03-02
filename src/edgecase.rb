@@ -144,6 +144,14 @@ module Edgecase
     end
   end
 
+  module BrowserActions
+    def selenium(driver = :chrome)
+      webdriver ||= Selenium::WebDriver.for driver
+      yield webdriver
+      webdriver.quit
+    end
+  end
+
   module Assertions
     FailedAssertionError = Class.new(StandardError)
 
@@ -416,6 +424,7 @@ ENDTEXT
 
   class Koan
     include Assertions
+    include BrowserActions
 
     attr_reader :name, :failure, :koan_count, :step_count, :koan_file
 
