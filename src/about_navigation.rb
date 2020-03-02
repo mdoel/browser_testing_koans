@@ -5,59 +5,60 @@ require 'selenium-webdriver'
 
 class AboutNavigation < Edgecase::Koan
 
-  def test_navigating_to_google
+  GOOGLE = 'https://www.google.com/'
+  MICROSOFT = 'https://www.microsoft.com/en-us/'
+
+  def test_navigating_via_the_driver_navigation_object
     selenium do |driver|
-      driver.navigate.to('https://www.google.com')
+      driver.navigate.to GOOGLE
+    end
+  end
+
+  def test_navigating_via_get
+    selenium do |driver|
+        driver.get MICROSOFT
     end
   end
 
   def test_getting_the_current_url
-    url = 'https://www.google.com/'
     selenium do |driver|
-      driver.navigate.to(url)
-      assert_equal(driver.current_url, url)
+      driver.get GOOGLE
+      assert_equal driver.current_url, GOOGLE
     end
   end
 
   def test_refreshing_the_page_leaves_you_in_the_same_place
-    url = 'https://www.google.com/'
     selenium do |driver|
-      driver.navigate.to(url)
+      driver.get GOOGLE
       driver.navigate.refresh
-      assert_equal(driver.current_url, url)
+      assert_equal driver.current_url, GOOGLE
     end
   end
 
   def test_webdriver_can_navigate_to_multiple_pages
-    url1 = 'https://www.google.com/'
-    url2 = 'https://www.microsoft.com/en-us'
     selenium do |driver|
-      driver.navigate.to(url1)
-      driver.navigate.to(url2)
-      assert_equal(driver.current_url, url2)
+      driver.get GOOGLE
+      driver.get MICROSOFT
+      assert_equal driver.current_url, MICROSOFT
     end
   end
 
   def test_webdriver_can_navigate_backwards_in_history
-    url1 = 'https://www.google.com/'
-    url2 = 'https://www.microsoft.com/en-us'
     selenium do |driver|
-      driver.navigate.to(url1)
-      driver.navigate.to(url2)
+      driver.get GOOGLE
+      driver.get MICROSOFT
       driver.navigate.back
-      assert_equal(driver.current_url, url1)
+      assert_equal driver.current_url, GOOGLE
     end
   end
 
   def test_webdriver_can_navigate_forward_in_history
-    url1 = 'https://www.google.com/'
-    url2 = 'https://www.microsoft.com/en-us'
     selenium do |driver|
-      driver.navigate.to(url1)
-      driver.navigate.to(url2)
+      driver.get GOOGLE
+      driver.get MICROSOFT
       driver.navigate.back
       driver.navigate.forward
-      assert_equal(driver.current_url, url2)
+      assert_equal driver.current_url, MICROSOFT
     end
   end
 end
