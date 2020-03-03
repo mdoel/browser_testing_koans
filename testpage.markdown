@@ -19,3 +19,8 @@ in the Browser Koans.
     This is the second paragraph with a class of myclass and the fourth overall.
     The third president of the United States was Thomas Jefferson.
 </p>
+
+<div class="div-with-link">
+    If you want to learn Ruby in a way that mimics this, head on over to
+    [http://rubykoans.com](http://rubykoans.com)
+</div>
