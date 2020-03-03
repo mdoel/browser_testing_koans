@@ -64,4 +64,46 @@ class AboutExtractingPageElements < Edgecase::Koan
     end
   end
 
+  # Many, if not most, web applications now use javascript to provide
+  # a more dynamic experience. When extracting page elements, we need
+  # to be mindful that we might have to wait for a change to occur before
+  # we can reason about what is on the page.
+  def test_webdriver_does_not_wait_fory_dynamic_page_changes_by_default
+    on_browserkoans_test_page do |driver|
+      volatile_text = -> { driver['delayed-text'].text }
+      assert_not_nil volatile_text.call[/Loading/]
+      assert_nil volatile_text.call[/jQuery/]
+    end
+  end
+
+  def wait_for(timeout,&block)
+    wait = Selenium::WebDriver::Wait.new(:timeout => timeout)
+    wait.until { yield }
+  end
+
+  def test_webdriver_can_be_made_to_wait
+    saw_change = false
+    on_browserkoans_test_page do |driver|
+      volatile_text = -> { driver['delayed-text'].text }
+      begin
+        wait_for(10) { !volatile_text.call[/Loading/] }
+        saw_change = true
+      rescue Selenium::WebDriver::Error::TimeoutError => ex
+      end
+    end
+    assert_equal true, saw_change
+  end
+
+  def test_webdriver_will_raise_an_exception_if_timeout_exceeded
+    saw_change = false
+    on_browserkoans_test_page do |driver|
+      volatile_text = -> { driver['delayed-text'].text }
+      begin
+        wait_for(1) { !volatile_text.call[/Loading/] }
+        saw_change = true
+      rescue Selenium::WebDriver::Error::TimeoutError => ex
+      end
+    end
+    assert_equal false, saw_change
+  end
 end
