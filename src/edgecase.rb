@@ -178,6 +178,11 @@ module Edgecase
       assert(expected == actual, msg)
     end
 
+    def assert_greater_than(expected, actual, msg=nil)
+      msg ||= "Expected #{actual.inspect} to be greater than #{expected.inspect}"
+      assert(actual > expected, msg)
+    end
+
     def assert_not_equal(expected, actual, msg=nil)
       msg ||= "Expected #{expected.inspect} to not equal #{actual.inspect}"
       assert(expected != actual, msg)
