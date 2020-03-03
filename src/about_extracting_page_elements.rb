@@ -48,7 +48,7 @@ class AboutExtractingPageElements < Edgecase::Koan
     end
   end
 
-  LINK_SELECTOR = ".div-with-link a"
+  LINK_SELECTOR = ".p-with-link a"
 
   def test_the_driver_can_find_elements_by_css_selector
     on_browserkoans_test_page do |driver|
