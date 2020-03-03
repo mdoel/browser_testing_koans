@@ -22,5 +22,5 @@ in the Browser Koans.
 
 <div class="div-with-link">
     If you want to learn Ruby in a way that mimics this, head on over to
-    [http://rubykoans.com](http://rubykoans.com)
+    <a href="http://rubykoans.com">http://rubykoans.com</a>
 </div>
