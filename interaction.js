@@ -15,7 +15,8 @@ $().ready(function () {
         } else {
             result = "No options chosen"
         }
-        $("#result").html(result);
+        $("#result-checkboxes").html(result);
+        $("#result-text").html($('#textentry').val());
         event.preventDefault();
     });
 });

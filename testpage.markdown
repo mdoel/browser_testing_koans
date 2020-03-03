@@ -35,8 +35,13 @@ in the Browser Koans.
 ## Test Form
 Pick one or both options and submit!
 <form id="testform" action="#">
-    <div><input id="option-1" type="checkbox"><label for="option-1">Option 1</label></div>
-    <div><input id="option-2" type="checkbox"><label for="option-2">Option 2</label></div>
+    <div><label for="option-1">Option 1</label><input id="option-1" type="checkbox" /></div>
+    <div><label for="option-2">Option 2</label><input id="option-2" type="checkbox" /></div>
+    <div><label for="textentry">Enter some text:</label><input id="textentry" type="text" /></div>
     <div><input id="form-submit" type="submit"></div>
-    <div><p>Result: <span id="result">No options chosen</span></p></div>
 </form>
+<h3 style="margin-top: 40px;">Form Results</h3>
+<div>
+    <p>Result of checkboxes: <span id="result-checkboxes">No options chosen</span></p>
+    <p>Text entry value: <span id="result-text">Nothing entered</span></p>
+</div>
