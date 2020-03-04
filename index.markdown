@@ -13,3 +13,10 @@ in Ruby. If you're brand new to Ruby, it's probably best to start at
 This site draws its inspiration directly from that site. It uses an interactive
 learning technique that encourages you to move one example at a time, pausing to
 think and reflect along the way.
+
+These koans follow the same pattern and interaction model as the Ruby Koans. Indeed, almost
+all of the code use to guide you on your path to learning comes from there. If you haven't been
+through them, check out the instructions on the Getting Started page. If you know what you're
+doing or are just eager to start, then go ahead and...
+
+<button><a href="https://github.com/mdoel/browser_testing_koans/blob/master/download/browserkoans.zip?raw=true">Download the Koans</a></button>
