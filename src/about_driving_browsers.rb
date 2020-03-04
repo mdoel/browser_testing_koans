@@ -18,7 +18,7 @@ class AboutDrivingBrowsers < Edgecase::Koan
       driver_launched = true
     rescue LoadError
     end
-    assert_equal false, driver_launched
+    assert_equal __(false), driver_launched
   end
 
   def test_selenium_throws_exception_if_unknown_driver_invoked
@@ -28,9 +28,9 @@ class AboutDrivingBrowsers < Edgecase::Koan
       driver.quit
       driver_launched = true
     rescue StandardError => ex
-      assert_equal true, ex.is_a?(ArgumentError)
+      assert_equal __(true), ex.is_a?(ArgumentError)
     end
-    assert_equal false, driver_launched
+    assert_equal __(false), driver_launched
   end
 
   def ensure_driver(browser)

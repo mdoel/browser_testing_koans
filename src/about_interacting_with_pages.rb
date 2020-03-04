@@ -12,16 +12,16 @@ class AboutInteractingWithPages < Edgecase::Koan
     end
   end
 
-  def test_you_can_fill_in_text_form_fields
+  def test_fill_in_text_input_fields
     on_browserkoans_test_page do |driver|
       text_field = driver.find_element id: 'textentry'
       assert_equal '', text_field.attribute('value')
       text_field.send_keys 'Hello World'
-      assert_equal 'Hello World', text_field.attribute('value')
+      assert_equal __('Hello World'), text_field.attribute('value')
     end
   end
 
-  def test_you_can_check_checkboxes_in_forms
+  def test_toggle_a_checkbox
     on_browserkoans_test_page do |driver|
       checkbox = driver.find_element id: 'option-1'
       assert_nil checkbox.attribute('checked')
@@ -30,7 +30,7 @@ class AboutInteractingWithPages < Edgecase::Koan
     end
   end
 
-  def test_you_can_fill_out_and_submit_entire_forms
+  def test_fill_out_and_submit_entire_form
     on_browserkoans_test_page do |driver|
       checkbox = driver.find_element id: 'option-1'
       text_field = driver.find_element id: 'textentry'
@@ -45,18 +45,18 @@ class AboutInteractingWithPages < Edgecase::Koan
       checkbox.click
       submit.click
 
-      assert_equal "Option 1 chosen", checkbox_result.text
-      assert_equal "Hello World", text_result.text
+      assert_equal __("Option 1 chosen"), checkbox_result.text
+      assert_equal __("Hello World"), text_result.text
     end
   end
 
-  def test_you_can_invoke_existing_javascript_functions
+  def test_invoke_existing_javascript_function
     on_browserkoans_test_page do |driver|
       evidence = driver.find_element id: 'load-me-dynamically'
       before_invocation = evidence.text
       driver.execute_script "loadItDynamically();"
       after_invocation = evidence.text
-      assert_equal true, before_invocation != after_invocation 
+      assert_equal __(true), before_invocation != after_invocation 
     end
   end
 end
