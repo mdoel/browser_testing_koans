@@ -6,3 +6,4 @@ dist
 *.rbc
 koans/*
 *~
+src/Gemfile.lock
