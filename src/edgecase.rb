@@ -323,9 +323,6 @@ module Edgecase
     end
 
     def artistic_end_screen
-      "JRuby 1.9.x Koans"
-      ruby_version = "(in #{'J' if defined?(JRUBY_VERSION)}Ruby #{defined?(JRUBY_VERSION) ? JRUBY_VERSION : RUBY_VERSION})"
-      ruby_version = ruby_version.side_padding(54)
         completed = <<-ENDTEXT
                                   ,,   ,  ,,
                                 :      ::::,    :::,
@@ -342,13 +339,13 @@ module Edgecase
  ,:::::::::::,                                                    ::::::::::::,
  :::::::::::,                                                     ,::::::::::::
 :::::::::::::                                                     ,::::::::::::
-::::::::::::                      Ruby Koans                       ::::::::::::
-::::::::::::#{                  ruby_version                     },::::::::::::
+::::::::::::              Browser Testing Koans                    ::::::::::::
+::::::::::::                                                       ::::::::::::
 :::::::::::,                                                      , :::::::::::
-,:::::::::::::,                brought to you by                 ,,::::::::::::
+,:::::::::::::,              in loving honor of                  ,,::::::::::::
 ::::::::::::::                                                    ,::::::::::::
  ::::::::::::::,                                                 ,:::::::::::::
- ::::::::::::,            Edgecase Software Artisans             , ::::::::::::
+ ::::::::::::,                   Jim Weirich                    , ::::::::::::
   :,::::::::: ::::                                               :::::::::::::
    ,:::::::::::  ,:                                          ,,:::::::::::::,
      ::::::::::::                                           ,::::::::::::::,
