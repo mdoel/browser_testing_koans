@@ -10,7 +10,7 @@ DOWNLOAD_DIR = 'download'
 SRC_FILES = FileList["#{SRC_DIR}/*"]
 KOAN_FILES = SRC_FILES.pathmap("#{PROB_DIR}/%f")
 
-ZIP_FILE = "#{DOWNLOAD_DIR}/rubykoans.zip"
+ZIP_FILE = "#{DOWNLOAD_DIR}/browserkoans.zip"
 
 CLEAN.include("**/*.rbc")
 
