@@ -33,7 +33,7 @@ brew install geckodriver
 If you are on Windows and are using chocolatey, you can:
 
 ```
-choco install geckodriver
+choco install selenium-gecko-driver
 ```
 
 If those don't work, find documentation at the
