@@ -49,7 +49,7 @@ class AboutDrivingBrowsers < Edgecase::Koan
   #
   # If you are on Windows and are using chocolatey, you can:
   #
-  #     choco install geckodriver
+  #     choco install selenium-gecko-driver
   #
   # If neither of those work, find documentation at:
   #
