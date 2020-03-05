@@ -144,3 +144,10 @@ your path thus far [.X________________________________________________] 1/30
 
 Excellent, we've now completed the first example and have moved onto the next
 failing test for us to examine and fix.
+
+## Switching Between Headless and Headed
+By default, almost all examples run using a headed browser (i.e. the browser is
+visible on screen). You can switch to headedless mode instead if you wish.
+Open up `browser.rb` and look for the `HEADLESS` constant. Change that from
+`false` to `true` and then almost all examples will run without you seeing
+the browser on your screen.
