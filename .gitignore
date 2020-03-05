@@ -9,3 +9,4 @@ koans/*
 src/Gemfile.lock
 .jekyll-cache/
 _site/
+screenshot.png
