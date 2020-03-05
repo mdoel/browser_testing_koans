@@ -145,7 +145,7 @@ module Edgecase
   end
 
   module BrowserActions
-    def selenium(driver = :chrome)
+    def headed(driver = :chrome)
       webdriver ||= Selenium::WebDriver.for driver
       yield webdriver
       webdriver.quit

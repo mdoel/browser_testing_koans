@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require File.expand_path(File.dirname(__FILE__) + '/edgecase')
+require File.expand_path(File.dirname(__FILE__) + '/browser')
+
 require 'selenium-webdriver'
 
 class AboutNavigation < Edgecase::Koan

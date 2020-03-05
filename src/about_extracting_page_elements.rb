@@ -1,16 +1,11 @@
 # frozen_string_literal: true
 
 require File.expand_path(File.dirname(__FILE__) + '/edgecase')
+require File.expand_path(File.dirname(__FILE__) + '/browser')
+
 require 'selenium-webdriver'
 
 class AboutExtractingPageElements < Edgecase::Koan
-  def on_browserkoans_test_page
-    url = 'https://browserkoans.com/testpage.html'
-    headless do |driver|
-      driver.get url
-      yield driver
-    end
-  end
 
   def test_you_can_extract_the_page_title
     on_browserkoans_test_page do |driver|

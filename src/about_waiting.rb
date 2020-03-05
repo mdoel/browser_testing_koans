@@ -1,16 +1,11 @@
 # frozen_string_literal: true
 
 require File.expand_path(File.dirname(__FILE__) + '/edgecase')
+require File.expand_path(File.dirname(__FILE__) + '/browser')
+
 require 'selenium-webdriver'
 
 class AboutWaiting < Edgecase::Koan
-  def on_browserkoans_test_page
-    url = 'https://browserkoans.com/testpage.html'
-    headless do |driver|
-      driver.get url
-      yield driver
-    end
-  end
 
   # Many, if not most, web applications now use javascript to provide
   # a more dynamic experience. When extracting page elements, we need
