@@ -9,3 +9,4 @@ gem 'win32console'
 end
 
 gem 'observr'
+gem 'capybara'
