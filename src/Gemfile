@@ -2,5 +2,10 @@ source "https://rubygems.org"
 
 gem 'selenium-webdriver'
 gem 'colorize'
+
+case RUBY_PLATFORM
+when /win32/
 gem 'win32console'
+end
+
 gem 'observr'
