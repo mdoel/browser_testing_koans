@@ -15,6 +15,17 @@ module Edgecase
       end
     end
 
+    ## When using Capybara
+    def on_visiting_browserkoans_test_page
+      if HEADLESS
+        Capybara.default_driver = :selenium_chrome_headless
+      else
+        Capybara.default_driver = :selenium_chrome
+      end
+      visit BROWSER_KOAN_TEST_PAGE
+      yield
+    end
+
     # For tests that don't use the browserkoans.com web
     # site, we can start our browser easily with this method.
     def selenium

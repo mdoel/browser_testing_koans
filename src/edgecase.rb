@@ -7,7 +7,7 @@ begin
   require 'win32console'
 rescue LoadError
 end
-require 'capybara/minitest'
+require 'capybara/rspec'
 
 # --------------------------------------------------------------------
 # Support code for the Ruby Koans.
@@ -437,7 +437,7 @@ ENDTEXT
     include Assertions
     include BrowserActions
     include Capybara::DSL
-    include Capybara::Minitest::Assertions
+    include RSpec::Matchers
 
     attr_reader :name, :failure, :koan_count, :step_count, :koan_file
 
