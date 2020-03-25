@@ -4,7 +4,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 require File.expand_path(File.dirname(__FILE__) + '/browser')
 
 
-class AboutCapybaraExpectations < Edgecase::Koan
+class AboutRSpecExpectations < Edgecase::Koan
 
   # In this koan, let's explore how to use RSpec Expectations along with
   # Capybara Matchers to assert things about the sites we visit.
@@ -38,23 +38,31 @@ class AboutCapybaraExpectations < Edgecase::Koan
       expectation_class = expect(page).class
       assert_equal(__(RSpec::Expectations::ExpectationTarget),expectation_class)
 
+    end
+  end
+
+  def test_expecations_methods_make_for_readable_code
+    on_browserkoans_test_page do
       # These expectation targets make it easy to write very readable code with
       # just a few methods. We saw above that it responds to the "to" method.
       expectation_methods = expect(page).methods
       assert_equal __(true), expectation_methods.include?(:to)
       assert_equal __(true), expectation_methods.include?(:not_to)
       assert_equal __(true), expectation_methods.include?(:to_not)
-
-      # In addition to wrapping an object, we can wrap blocks in expectations
-      error_raised = true
-      expect do
-        raise StandardError
-        error_raised = false
-      end.to raise_error
-      assert_equal __(true), error_raised
     end
   end
 
+  def test_expecations_can_also_wrap_blocks
+    # In addition to wrapping an object, we can wrap blocks in expectations
+    error_raised = true
+    expect do
+      raise StandardError
+      error_raised = false
+    end.to raise_error
+    assert_equal __(true), error_raised
+  end
+
+  # We can use these expectations to assert something affirmative
   def test_capybara_can_find_element
     on_visiting_browserkoans_test_page do
       assert_equal __(true), page.has_selector?('#mypara')
@@ -64,6 +72,7 @@ class AboutCapybaraExpectations < Edgecase::Koan
     end
   end
 
+  # We can also use the expectations to ensure a necessary negative
   def test_capybara_can_ensure_something_is_not_found
     on_visiting_browserkoans_test_page do
       assert_equal __(false), page.has_selector?('#not-there')
