@@ -7,7 +7,7 @@ require File.expand_path(File.dirname(__FILE__) + '/browser')
 class AboutRSpecExpectations < Edgecase::Koan
 
   # In this koan, let's explore how to use RSpec Expectations along with
-  # Capybara Matchers to assert things about the sites we visit.
+  # a very brief intro to Capybara Matchers to assert things about the sites we visit.
   def test_capybara_can_check_path
     on_visiting_browserkoans_test_page do
       assert_equal __(true), page.has_current_path?(BROWSER_KOAN_TEST_PAGE)
@@ -67,7 +67,7 @@ class AboutRSpecExpectations < Edgecase::Koan
     on_visiting_browserkoans_test_page do
       assert_equal __(true), page.has_selector?('#mypara')
       assert_nothing_raised do
-        expect(page).to have_selector('#mypara')
+        expect(page).to have_selector(__('#mypara'))
       end
     end
   end
@@ -77,7 +77,7 @@ class AboutRSpecExpectations < Edgecase::Koan
     on_visiting_browserkoans_test_page do
       assert_equal __(false), page.has_selector?('#not-there')
       assert_nothing_raised do
-        expect(page).to_not have_selector('#not-there')
+        expect(page).to_not have_selector(__('#not-there'))
       end
     end
   end

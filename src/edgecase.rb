@@ -405,6 +405,8 @@ ENDTEXT
     def find_interesting_lines(backtrace)
       backtrace.reject { |line|
         line =~ /edgecase\.rb/
+      }.reject { |line|
+        line =~ /gems\/rspec/
       }
     end
 
@@ -467,7 +469,7 @@ ENDTEXT
       setup
       begin
         send(name)
-      rescue StandardError, Edgecase::Sensei::FailedAssertionError => ex
+      rescue StandardError, RSpec::Expectations::ExpectationNotMetError, Edgecase::Sensei::FailedAssertionError => ex
         failed(ex)
       ensure
         begin
