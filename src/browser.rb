@@ -34,4 +34,14 @@ module Edgecase
       end
     end
   end
+
+  module CapybaraKoan
+    def self.included(klass)
+      if HEADLESS
+        Capybara.default_driver = :selenium_chrome_headless
+      else
+        Capybara.default_driver = :selenium_chrome
+      end
+    end
+  end
 end
